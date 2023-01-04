@@ -1,0 +1,139 @@
+@import '../config';
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: $color-bg-print;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paper-awb {
+    width: 800px;
+    height: 533px;
+    background-color: $color-white;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+
+    .header {
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        border-bottom: 1px solid black;
+
+        img {
+            width: 13rem;
+            height: auto;
+        }
+        p {
+            text-align: right;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+    }
+    .content {
+        height: calc(100% - 110px);
+        padding: 20px;
+        display: flex;
+        align-items: center;
+
+        .section-left, .section-right {
+            height: 100%;
+        }
+        .section-left {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .sending-info {
+                h1 {
+                    font-size: 26px;
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                }
+                p {
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+            }
+            .address-info {
+                font-size: 16px;
+
+                .title {
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                }
+                .address {
+                    font-weight: 400;
+                    line-height: 160%;
+                }
+                .telephone {
+                    font-weight: 400;
+                    margin-top: 5px;
+                }
+                .info {
+                    font-weight: 400;
+                    margin-bottom: 5px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        .section-right {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+
+            .shipping-logo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                img {
+                    width: 150px;
+                    height: auto;
+                    margin-bottom: 10px;
+                }
+                .shipping-code {
+                    font-weight: 600;
+                    font-size: 24px;
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+@media print {
+    @page {
+        size: 800px 533px;
+        size: landscape;
+        margin: 0;
+    }
+    html, body {
+        width: 800px;
+        height: 533px;
+    }
+    .paper-awb {
+        box-shadow: initial;
+        background: initial;
+    }
+}

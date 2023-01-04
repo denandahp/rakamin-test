@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+    loratech-test:
+        #Use Build if in local
+        #Use image if in Production
+        # build:
+        #     context: .
+        #     dockerfile: Dockerfile
+        image: denandahp/loratech-test:latest
+        container_name: loratech-test
+        # env_file: .env
+        # environment:
+        #   WAIT_HOSTS: postgres:5432
+        networks:
+            - loratech-networks
+        ports:
+            - 8000:8000
+        # command: user:postgre host:18.216.58.97 db:petdiary pass:postgres  -- npm start
+        #Use Volume if in local & comment if in production
+        # volumes:
+        #     - .:/code
+
+networks:
+   loratech-networks:
+
+    

@@ -1,0 +1,12 @@
+Django==3.2
+django-extensions==3.0.9
+django-model-utils==4.3.1
+djangorestframework==3.12.4
+
+ipdb==0.13.7 
+
+psycopg2-binary==2.9.5
+
+requests==2.25.1
+responses==0.13.1
+

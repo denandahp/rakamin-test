@@ -1,0 +1,20 @@
+# Packaging
+*.pyc
+*__pycache__*
+__pycache__
+/__pycache__
+/rakamin_test/__pycache__
+/rakamin_test/__pycache__/
+/rakamin_test/*__pycache__
+__pycache__/
+*.egg-info
+/dist/
+/build/
+
+# venv
+/bin/
+/lib/
+/share
+/pyvenv.cfg
+/pip-selfcheck.json
+venv/

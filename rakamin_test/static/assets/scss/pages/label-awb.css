@@ -1,0 +1,127 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(204, 204, 204);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paper-awb {
+  width: 800px;
+  height: 533px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}
+.paper-awb .header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid black;
+}
+.paper-awb .header img {
+  width: 13rem;
+  height: auto;
+}
+.paper-awb .header p {
+  text-align: right;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.paper-awb .content {
+  height: calc(100% - 110px);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.paper-awb .content .section-left, .paper-awb .content .section-right {
+  height: 100%;
+}
+.paper-awb .content .section-left {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.paper-awb .content .section-left .sending-info h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.paper-awb .content .section-left .sending-info p {
+  font-size: 16px;
+  font-weight: 400;
+}
+.paper-awb .content .section-left .address-info {
+  font-size: 16px;
+}
+.paper-awb .content .section-left .address-info .title {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.paper-awb .content .section-left .address-info .address {
+  font-weight: 400;
+  line-height: 160%;
+}
+.paper-awb .content .section-left .address-info .telephone {
+  font-weight: 400;
+  margin-top: 5px;
+}
+.paper-awb .content .section-left .address-info .info {
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.paper-awb .content .section-left .address-info .info:last-child {
+  margin-bottom: 0;
+}
+.paper-awb .content .section-right {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.paper-awb .content .section-right .shipping-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.paper-awb .content .section-right .shipping-logo img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+.paper-awb .content .section-right .shipping-logo .shipping-code {
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media print {
+  @page {
+    size: 800px 533px;
+    size: landscape;
+    margin: 0;
+  }
+  html, body {
+    width: 800px;
+    height: 533px;
+  }
+  .paper-awb {
+    box-shadow: initial;
+    background: initial;
+  }
+}/*# sourceMappingURL=label-awb.css.map */
