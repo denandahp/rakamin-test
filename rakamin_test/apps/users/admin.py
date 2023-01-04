@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from rakamin_test.apps.users.model import User
+from rakamin_test.apps.users.model import users
 
-admin.site.register(User)
+admin.site.register(users)

@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from rakamin_test.api.users.serializers import UserSerializers
-from rakamin_test.apps.users.model import User
+from rakamin_test.apps.users.model import users
 from rakamin_test.core.utils import PaginatorPage
 
 class DetailUsers(APIView):
@@ -19,7 +19,7 @@ class DetailUsers(APIView):
     def get(self, request: request) -> Response:
         mobile_number = request.GET.get('mobile_number')
         if mobile_number:
-            user = User.objects.filter(mobile_number=mobile_number).first()
+            user = users.objects.filter(mobile_number=mobile_number).first()
             serializer = UserSerializers(user, many=True)
             if not serializer:
                 data ={
@@ -48,7 +48,7 @@ class IndexUsers(APIView):
     def get(self, request: request) -> Response:
         user_list = []
         limit = int(request.GET.get('limit', 1))
-        users = User.objects.all()
+        users = users.objects.all()
         serializer = UserSerializers(users, many=True)
         paginator = PaginatorPage(serializer, request.GET.get('page', 1), step=limit)
         for user in paginator.objects:

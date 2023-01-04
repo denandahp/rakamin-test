@@ -1,7 +1,10 @@
-import random
 from typing import Union
 
 from django.db.models import QuerySet
+from django.contrib.auth import get_user_model
+from django.contrib.auth.backends import ModelBackend
+
+from rakamin_test.apps.users.model import users
 
 
 class PaginatorPage(object):
@@ -56,3 +59,15 @@ class PaginatorPage(object):
                 self.next_object = list_queryset[-1]
 
             self.objects = list_queryset[0:step]
+
+class AuthBackend(ModelBackend):
+    def authenticate(username=None, password=None, **kwargs):
+        user_model = get_user_model()
+        try:
+            user = user_model.objects.get(mobile_number=username)
+        except user_model.DoesNotExist:
+            return None
+        else:
+            if user.check_password(password):
+                return user
+        return None

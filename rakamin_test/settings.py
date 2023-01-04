@@ -28,11 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.users'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'rakamin_test.apps.users',
+    'rakamin_test.apps.chats',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,9 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-
-    'rakamin_test.apps.users',
-    'rakamin_test.apps.chats'
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +77,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rakamin_test.wsgi.application'
 
+
+AUTHENTICATION_BACKENDS = ['rakamin_test.core.utils.AuthBackend']
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

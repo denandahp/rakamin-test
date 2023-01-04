@@ -1,6 +1,7 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.core.exceptions import ObjectDoesNotExist
 
+from rakamin_test.core.utils import AuthBackend
 
 from rest_framework import status
 from rest_framework.authtoken.models import Token
@@ -12,8 +13,7 @@ class Login(APIView):
     def post(self, request):
         mobile_number = request.data.get('mobile_number')
         password = request.data.get('password')
-        user = authenticate(username=mobile_number, password=password)
-        print(user)
+        user = AuthBackend.authenticate(username=mobile_number, password=password)
         if user and user.is_active:
             login(request, user)
             token = Token.objects.get_or_create(user=user)
@@ -30,17 +30,17 @@ class Login(APIView):
     def get(self, request):
         return Response({"message": "Now Login"}, status=status.HTTP_200_OK)
     
-    def response_login(user):
+    def response_login(self, user):
         data = {
             "name": user.name,
-            "mobile_number": user.email,
+            "mobile_number": user.mobile_number,
             "is_superuser": False,
         }
 
         if user.is_superuser or user.is_supervisor:
             data['is_superuser'] = True
             return data
-
+        return data
 
 
 class Logout(APIView):
