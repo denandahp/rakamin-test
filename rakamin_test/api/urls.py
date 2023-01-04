@@ -8,6 +8,6 @@ urlpatterns = [
         'rakamin_test.api.users.urls', namespace='users')),
     path('auth/', include(
         'rakamin_test.api.auth.urls', namespace='auth')),
-    # path('chats/', include(
-    #     'rakamin_test.api.chats.urls', namespace='chats')),
+    path('chats/', include(
+        'rakamin_test.api.chats.urls', namespace='chats')),
 ]

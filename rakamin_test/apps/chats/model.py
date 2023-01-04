@@ -10,6 +10,10 @@ class messages(models.Model):
     message = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     is_read = models.BooleanField(default=False)
+    room = models.ForeignKey('chats.room',
+                             on_delete=models.CASCADE,
+                             related_name='room',
+                             blank=True, null=True)
 
     def __str__(self) -> str:
         return f"{self.sender} to {self.receiver}"

@@ -10,6 +10,9 @@ from rest_framework.views import APIView
 
 
 class Login(APIView):
+    authentication_classes = []
+    permission_classes = []
+
     def post(self, request):
         mobile_number = request.data.get('mobile_number')
         password = request.data.get('password')
@@ -44,6 +47,9 @@ class Login(APIView):
 
 
 class Logout(APIView):
+    authentication_classes = []
+    permission_classes = []
+
     def get(self, request):
         try:
             request.user.auth_token.delete()
