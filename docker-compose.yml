@@ -1,19 +1,19 @@
 version: '3.8'
 
 services:
-    loratech-test:
+    rakamin-test:
         #Use Build if in local
         #Use image if in Production
         # build:
         #     context: .
         #     dockerfile: Dockerfile
-        image: denandahp/loratech-test:latest
-        container_name: loratech-test
+        image: denandahp/rakamin-test:latest
+        container_name: rakamin-test
         # env_file: .env
         # environment:
         #   WAIT_HOSTS: postgres:5432
         networks:
-            - loratech-networks
+            - rakamin-networks
         ports:
             - 8000:8000
         # command: user:postgre host:18.216.58.97 db:petdiary pass:postgres  -- npm start
@@ -22,6 +22,6 @@ services:
         #     - .:/code
 
 networks:
-   loratech-networks:
+   rakamin-networks:
 
     
