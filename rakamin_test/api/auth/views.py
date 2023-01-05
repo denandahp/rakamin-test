@@ -12,6 +12,23 @@ from rest_framework.views import APIView
 class Login(APIView):
     authentication_classes = []
     permission_classes = []
+    '''
+    url= http://127.0.0.1:8000/api/auth/login
+    Payload = 
+        {
+            "mobile_number": "081215712199",
+            "password": "12345678"
+        }
+    Response=
+        {
+            "data": {
+                "name": "081215712199",
+                "mobile_number": "081215712199",
+                "is_superuser": true
+            },
+            "token": "42be397d4a17e39205782db741c92832652d5a59"
+        }
+    '''
 
     def post(self, request):
         mobile_number = request.data.get('mobile_number')
@@ -49,6 +66,13 @@ class Login(APIView):
 class Logout(APIView):
     authentication_classes = []
     permission_classes = []
+    '''
+    url= http://127.0.0.1:8000/api/auth/logout
+    response=
+        {
+            "success": "logout success."
+        }
+    '''
 
     def get(self, request):
         try:

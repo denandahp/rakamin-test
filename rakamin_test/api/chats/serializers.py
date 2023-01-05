@@ -8,16 +8,25 @@ from rakamin_test.apps.chats.model import messages, room
 class MessagesSerializers(serializers.ModelSerializer):
     class Meta:
         model = messages
-        fields = ['sender', 'receiver', 'message', 'reply_from']
+        fields = ['receiver', 'message', 'reply_from']
     
     def validate_message(self, message):
         if not message:
-             raise serializers.ValidationError('This field must be an even number.')
+             raise serializers.ValidationError('Message must fill')
         return message
+    
+    def validate_reply_from(self, reply_from):
+        message = messages.objects.filter(id=reply_from).first()
+        if not message:
+             raise serializers.ValidationError('Messages does not exist')
+        return reply_from
 
     def create(self, validated_data):
-        sender = validated_data.get('sender', '')
-        receiver = validated_data.get('receiver', '')
+        sender = validated_data.get('sender')
+        receiver = validated_data.get('receiver')
+
+        if sender == receiver:
+            raise serializers.ValidationError({'receiver': 'Sender and receiver cannot be the same'})
 
         room_exist = room.objects.filter(
             Q(user1=sender, user2=receiver) | 
@@ -31,6 +40,7 @@ class MessagesSerializers(serializers.ModelSerializer):
         return message
     
     def update(self, instance, validated_data):
+        print(instance)
         unread_messages_list = []
         for unread_message in instance:
             unread_message.is_read = validated_data.get('is_read')
