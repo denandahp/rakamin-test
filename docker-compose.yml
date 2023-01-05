@@ -16,7 +16,6 @@ services:
             - rakamin-networks
         ports:
             - 8000:8000
-        # command: user:postgre host:18.216.58.97 db:petdiary pass:postgres  -- npm start
         #Use Volume if in local & comment if in production
         # volumes:
         #     - .:/code

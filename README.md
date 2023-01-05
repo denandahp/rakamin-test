@@ -2,11 +2,23 @@
 
 #### denanda.hendra.p@mail.ugm.ac.id
 
-A simple rest api used to CRUD Transactions and User.
+How to run the apps :
 
-### How to run the apps :
+#### 1. Install Docker and Docker Compose
 
-#### 1. Create new file `docker-compose.yml` and fill with this code
+1. Install Docker
+   Install Docker in Linux/Ubuntu https://docs.docker.com/engine/install/
+
+   Install Docker in Windows https://docs.docker.com/desktop/install/windows-install/
+
+   Choose One
+2. Install Docker Compose
+
+   Install in Linux/Ubuntu https://docs.docker.com/compose/install/linux/
+
+   Install in Windows https://linuxhint.com/install-docker-compose-windows/
+
+#### 2. Create new file `docker-compose.yml` and fill with this code
 
 ```
 version: '3.8'
@@ -23,7 +35,7 @@ networks:
    rakamin-networks:
 ```
 
-#### 2. Launch the apps
+#### 3. Launch the apps
 
 Build docker compose
 
